@@ -18,11 +18,11 @@ export default function App() {
   const renderCurrentPage = (): React.ReactElement => {
 
     return (
-      <div className="page-content-wrapper">
+      <div>
         {(() => {
           switch (currentPage) {
             case "#home":
-              return <HomePage />;
+              return <HomePage setPage={setPage} />;
             case "#about":
               return <AboutPage />;
             case "#portfolio":

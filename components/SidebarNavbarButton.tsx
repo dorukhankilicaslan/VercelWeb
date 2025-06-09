@@ -16,10 +16,10 @@ export default function SideNavbarButton({ text, href, icon, isActive = false, o
         <button
             className={
                 `group relative inline-flex h-12 w-12 items-center justify-start overflow-hidden
-                rounded-full transition-all duration-300  hover:w-40 bg-[var(--passive)]  hover:bg-[var(--secondary)]
+                rounded-full transition-all duration-300  hover:w-40 bg-[var(--passive)]  hover:bg-[var(--primary)]
                 hover:cursor-pointer ${isActive ? 'active' : ''}`
             }
-            style={{ backgroundColor: isActive ? 'var(--secondary)' : '' }}
+            style={{ backgroundColor: isActive ? 'var(--primary)' : '' }}
             onClick={onClick}
         >
             {/* Metin İçeriği */}

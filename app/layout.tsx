@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ overflowX: "hidden", height: "100%" }}>
-      <body className={` ${poppins.variable} ${opensans.variable}`} style={{ backgroundColor: "var(--background)", color: "var(--foreground)", }}>
+    <html lang="en" >
+      <body className={` ${poppins.variable} ${opensans.variable} ` } style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
         {children}
       </body>
     </html>

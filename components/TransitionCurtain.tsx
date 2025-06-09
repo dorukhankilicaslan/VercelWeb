@@ -12,7 +12,7 @@ const TransitionCurtain = forwardRef<HTMLDivElement, TransitionCurtainProps>(
         return (
             <div ref={ref} className="transition-curtain-container">
                 {children}
-                <div className="transition-overlay"></div>
+                <div className="transition-overlay z-9999"></div>
             </div>
         );
     }

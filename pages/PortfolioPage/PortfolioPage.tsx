@@ -10,5 +10,4 @@ export default function PortfolioPage() {
             <h1>Portfolio Page</h1>
         </div>
     )
-
 }
