@@ -2,7 +2,9 @@
 import type { Metadata } from "next";
 import { Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
-import Script from 'next/script'; // Import Script from next/script
+
+import TransitionOverlay from "@/components/TransitionOverlay";
+import { useState, useEffect } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,8 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" >
-      <body className={` ${poppins.variable} ${opensans.variable} ` } style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
-        {children}
+      <body className={` ${poppins.variable} ${opensans.variable} `} style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
+        <div className="page-content-wrapper">
+          {children}
+        </div>
       </body>
     </html>
   );
