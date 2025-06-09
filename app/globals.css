@@ -1,0 +1,218 @@
+/* Global Düzen ve Kaydırma Çubuğu Kontrolü */
+html,
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#root,
+body>div:first-child {
+  width: 100%;
+  max-width: 1600px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  position: relative;
+  /* İçindeki absolute elemanlar için referans noktasıdır */
+  height: 100vh;
+  /* Tam yüksekliği kaplaması önemli */
+}
+
+/* --- CSS Değişkenleri (Renkler) --- */
+:root {
+  --background: rgb(237, 237, 237);
+  --foreground: rgb(17, 17, 17);
+  --secondary: rgb(247, 43, 28);
+  --passive: rgb(80, 80, 80);
+  --primary: rgb(247, 43, 28);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(17, 17, 17);
+    --foreground: rgb(237, 237, 237);
+    --secondary: rgb(247, 43, 28);
+    --passive: rgb(80, 80, 80);
+    --primary: rgb(247, 43, 28);
+  }
+}
+
+.mobileImage {
+  display: none;
+}
+
+.nav-button-adaptive {
+  min-width: 3rem;
+  width: 3rem;
+  box-sizing: border-box;
+  transition: width 300ms ease-in-out;
+}
+
+.group:hover.nav-button-adaptive {
+  width: auto;
+}
+
+.nav-button-adaptive.active {
+  width: auto;
+}
+
+.nav-button-text-container {}
+
+.nav-button-adaptive.active .nav-button-text-container {
+  opacity: 1;
+  transition-delay: 0ms;
+}
+
+/* --- Sayfa İçeriğini Saran Asıl Div --- */
+/* Bu div, sizin HomePage, AboutPage gibi bileşenlerinizin root div'idir. */
+.page-content-wrapper {
+  position: absolute;
+  /* Mutlak konumda olmalı */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Ebeveynine (transition-curtain-container) göre %100 */
+  box-sizing: border-box;
+  z-index: 1;
+  /* Overlay'in altında kalmalı */
+  opacity: 1;
+  /* Varsayılan olarak görünür */
+  /* Bu, animasyonun bir parçası olarak opaklık değişimini sağlar */
+  transition: opacity 300ms ease-out;
+  /* Varsayılan geçiş */
+}
+
+/* --- TransitionCurtain.tsx içinde kullanılan kapsayıcı --- */
+/* CSSTransition bu kapsayıcıyı render eder. */
+.transition-curtain-container {
+  position: absolute;
+  /* Ebeveynine (#root veya body > div:first-child) göre konumlanır */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* İçindeki overlay'in taşmasını engeller */
+  z-index: 1;
+}
+
+.transition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--passive);
+  z-index: 10;
+  transform-origin: left center;
+  transform: scaleY(0);
+  transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* Yeni sayfa ilk yüklendiğinde (appear) */
+.curtain-transition-appear .transition-overlay {
+  transform: scaleY(1);
+  transform-origin: right center;
+}
+
+.curtain-transition-appear-active .transition-overlay {
+  transform: scaleY(0);
+}
+
+.curtain-transition-appear .page-content-wrapper {
+  opacity: 0;
+}
+
+.curtain-transition-appear-active .page-content-wrapper {
+  opacity: 1;
+}
+
+.curtain-transition-enter .transition-overlay {
+  transform: scaleY(1);
+  transform-origin: top center;
+}
+
+.curtain-transition-enter-active .transition-overlay {
+  transform: scaleY(0);
+  transition-delay: 100ms;
+}
+
+.curtain-transition-enter .page-content-wrapper {
+  opacity: 0;
+}
+
+.curtain-transition-enter-active .page-content-wrapper {
+  opacity: 1;
+  transition: opacity 0ms ease-in 200ms;
+}
+
+.curtain-transition-exit .transition-overlay {
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.curtain-transition-exit-active .transition-overlay {
+  transform: scaleY(1);
+  /* Perde kapanır, eski sayfayı gizler */
+  /* transition-delay yok, hemen başlar. */
+}
+
+/* Eski sayfa içeriği için animasyon */
+.curtain-transition-exit .page-content-wrapper {
+  opacity: 1;
+  transition: opacity 0ms ease-out 200ms;
+}
+
+.curtain-transition-exit-active .page-content-wrapper {
+  opacity: 0;
+}
+
+
+@media (max-width: 1200px) {
+  .nameLine {
+    display: none;
+  }
+
+  .mainPageRightSideMain {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .sideNav,
+  .colorBlock,
+  .profileImage {
+    display: none;
+  }
+
+  .main-content-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mobileImage {
+    display: block;
+  }
+}
+
+@media (max-width: 425px) {
+  .mobileImage {
+    display: none;
+  }
+
+  h1 {
+    font-size: 0.1rem!important;
+  }
+}
