@@ -32,7 +32,7 @@ body>div:first-child {
   --background: rgb(237, 237, 237);
   --foreground: rgb(17, 17, 17);
   --secondary: rgb(247, 43, 28);
-  --passive: rgb(80, 80, 80);
+  --passive: rgb(50, 50, 50);
   --primary: rgb(247, 43, 28);
 }
 
@@ -41,13 +41,9 @@ body>div:first-child {
     --background: rgb(17, 17, 17);
     --foreground: rgb(237, 237, 237);
     --secondary: rgb(247, 43, 28);
-    --passive: rgb(80, 80, 80);
+    --passive: rgb(50, 50, 50);
     --primary: rgb(247, 43, 28);
   }
-}
-
-.mobileImage {
-  display: none;
 }
 
 .nav-button-adaptive {
@@ -175,44 +171,4 @@ body>div:first-child {
 
 .curtain-transition-exit-active .page-content-wrapper {
   opacity: 0;
-}
-
-
-@media (max-width: 1200px) {
-  .nameLine {
-    display: none;
-  }
-
-  .mainPageRightSideMain {
-    margin-left: 1rem;
-  }
-}
-
-@media (max-width: 900px) {
-
-  .sideNav,
-  .colorBlock,
-  .profileImage {
-    display: none;
-  }
-
-  .main-content-container {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .mobileImage {
-    display: block;
-  }
-}
-
-@media (max-width: 425px) {
-  .mobileImage {
-    display: none;
-  }
-
-  h1 {
-    font-size: 0.1rem!important;
-  }
 }

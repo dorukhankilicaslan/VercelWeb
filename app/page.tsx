@@ -7,6 +7,7 @@ import TransitionWrapper from "@/components/TransitionWrapper";
 import HomePage from "@/pages/HomePage/HomePage";
 import AboutPage from "@/pages/AboutPage/AboutPage";
 import ContactPage from "@/pages/ContactPage/ContactPage";
+import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage";
 
 import { useState } from "react";
 import React from 'react';
@@ -24,6 +25,8 @@ export default function App() {
               return <HomePage />;
             case "#about":
               return <AboutPage />;
+            case "#portfolio":
+              return <PortfolioPage />;
             case "#contact":
               return <ContactPage />;
             default:

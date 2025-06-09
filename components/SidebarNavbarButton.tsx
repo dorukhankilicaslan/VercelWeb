@@ -31,7 +31,7 @@ export default function SideNavbarButton({ text, href, icon, isActive = false, o
             </div>
 
             {/* İkon Konteyneri */}
-            <div className="absolute right-3.5 flex items-center justify-center h-full w-auto">
+            <div className="absolute right-4 flex items-center justify-center h-full w-auto">
                 {icon}
             </div>
         </button>
