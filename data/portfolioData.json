@@ -1,0 +1,74 @@
+[
+    {
+        "firm-name": "Instagram Post Çalışmaları",
+        "project-desc": "Marka bilincini artıran Instagram post tasarımları.",
+        "project-images": [
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080954/RollupRender_y6g1wb.png",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080954/RollupRender_y6g1wb.png",
+                "alt": "Instagram Rollup",
+                "caption": "Instagram Rollup Banner"
+            },
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/KartvizitRender_xudxkp.png",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/KartvizitRender_xudxkp.png",
+                "alt": "Instagram Kartvizit",
+                "caption": "Instagram Kartvizit Tasarımı"
+            },
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/UsbBoxRender_ayj3tw.png",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/UsbBoxRender_ayj3tw.png",
+                "alt": "Instagram USB Kutusu",
+                "caption": "Instagram Özel USB Kutusu"
+            },
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080945/MagnetRender_ihkr4j.png",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080945/MagnetRender_ihkr4j.png",
+                "alt": "Instagram Magnet",
+                "caption": "Instagram Promosyon Magnet"
+            }
+        ]
+    },
+    {
+        "firm-name": "Axial",
+        "project-desc": "Broşür ve magnet tasarımları",
+        "project-images": [
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
+                "alt": "Axial Broşür Ön Yüz",
+                "caption": "Axial Broşür Ön Yüz"
+            },
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
+                "alt": "Axial Broşür İç Sayfa",
+                "caption": "Axial Broşür İç Sayfa"
+            }
+        ]
+    },
+    {
+        "firm-name": "Kanatçı Ezo",
+        "project-desc": "Broşür, magnet ve kartvizit tasarımları",
+        "project-images": [
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",
+                "alt": "Kanatçı Ezo Broşür Ön Kapak",
+                "caption": "Kanatçı Ezo Broşür Ön Kapak"
+            },
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
+                "alt": "Kanatçı Ezo Broşür Arka Kapak",
+                "caption": "Kanatçı Ezo Broşür Arka Kapak"
+            },
+            {
+                "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088556/1_Magnet_us2k6a.jpg",
+                "thumbnailSrc": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088556/1_Magnet_us2k6a.jpg",
+                "alt": "Kanatçı Ezo Magnet",
+                "caption": "Kanatçı Ezo Promosyon Magnet"
+            }
+        ]
+    }
+]

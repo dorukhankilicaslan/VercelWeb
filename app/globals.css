@@ -1,13 +1,12 @@
-/* Global Düzen ve Kaydırma Çubuğu Kontrolü */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+@import "tailwindcss";
+@import 'photoswipe/dist/photoswipe.css';
+@import 'justifiedGallery/dist/css/justifiedGallery.css';
 
 html,
 body {
   box-sizing: border-box;
 }
 
-@import "tailwindcss";
 
 body {
   margin: 0;
@@ -34,7 +33,7 @@ body>div:first-child {
 :root {
   --background: rgb(237, 237, 237);
   --foreground: rgb(17, 17, 17);
-  --primary: rgb(247, 43, 28);
+  --primary: rgba(247, 43, 28, 1);
   --passive: rgb(50, 50, 50);
   --success: oklch(72.3% 0.219 149.579)
 }
@@ -43,7 +42,7 @@ body>div:first-child {
   :root {
     --background: rgb(17, 17, 17);
     --foreground: rgb(237, 237, 237);
-    --primary: rgb(247, 43, 28);
+    --primary: rgba(247, 43, 28, 1);
     --passive: rgb(50, 50, 50);
     --success: oklch(72.3% 0.219 149.579)
   }

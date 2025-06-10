@@ -7,7 +7,7 @@ export default function ExperienceList() {
             <ul>
                 <ExperienceItem
                     icon={<FaBriefcase size={20} />}
-                    date="2021 - Present"
+                    date="2021 - 2025"
                     title="Tasarımcı & Yazılımcı"
                     place="Freelance "
                     description="UI/UX tasarımı, logo ve web geliştirme projeleri yürüttüm.
