@@ -1,5 +1,6 @@
 [
     {
+        "id": "instagram-posts",
         "firm-name": "Instagram Post Çalışmaları",
         "project-desc": "Marka bilincini artıran Instagram post tasarımları.",
         "project-images": [
@@ -30,8 +31,9 @@
         ]
     },
     {
+        "id": "axial-project",
         "firm-name": "Axial",
-        "project-desc": "Broşür ve magnet tasarımları",
+        "project-desc": "Temizlik tuzu etiket tasarımı",
         "project-images": [
             {
                 "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
@@ -48,8 +50,9 @@
         ]
     },
     {
+        "id": "kanatci-ezo",
         "firm-name": "Kanatçı Ezo",
-        "project-desc": "Broşür, magnet ve kartvizit tasarımları",
+        "project-desc": "Broşür ve magnet tasarımları",
         "project-images": [
             {
                 "src": "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",

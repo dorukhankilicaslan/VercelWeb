@@ -9,11 +9,11 @@ import SkillsSection from '@/components/SkillsSection';
 
 const AboutPage = forwardRef<HTMLDivElement>((props, ref) => {
     return (
-        <div ref={ref} className="md:px-10 lg:px-25">
+        <div ref={ref} className="md:px-10 lg:px-25 font-[poppins]">
 
             <h1 className='isolate justify-self-center text-center grid place-items-center mb-15 pt-10'>
                 <span className='col-start-1 row-start-1 text-9xl font-black text-[var(--passive)] z-0'>RESUME</span>
-                <span className='col-start-1 row-start-1 mt-2 text-6xl font-black text-[var(--foreground)] z-1'>
+                <span className='col-start-1 row-start-1 text-6xl font-black text-[var(--foreground)] z-1'>
                     <span className='text-[var(--primary)]'>ÖZ</span>GEÇMİŞ
                 </span>
             </h1>

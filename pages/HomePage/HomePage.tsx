@@ -42,9 +42,9 @@ const HomePage = forwardRef<HTMLDivElement, { setPage: React.Dispatch<React.SetS
                                     </span>
                                 </li>
                                 <li>
-                                    <span className='uppercase text-3xl leading-1 md:leading-tight md:text-4xl whitespace-nowrap'
-                                        style={{ fontFamily: "Poppins", color: "var(--foreground)" }}>
-                                        WEB DESIGNER
+                                    <span className='uppercase text-2xl md:text-2xl leading-1
+                                      whitespace-nowrap font-[Poppins] text-var(--foreground)'>
+                                        GRAFİK VE WEB TASARIM UZMANI
                                     </span>
                                 </li>
                             </ul>

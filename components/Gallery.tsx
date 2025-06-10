@@ -1,94 +1,33 @@
 // src/components/Gallery.tsx
 
-import React, { useEffect, useRef } from 'react'; // useState kaldırıldı
+import React, { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-// ProjectDetailsPanel ve ReactDOMServer import'ları kaldırıldı
 
 import GalleryItem from './GalleryItem';
 
-// Justified Gallery Wrapper'ı
 const DynamicJustifiedGalleryWrapper = dynamic(
     () => import('./JustifiedGalleryWrapper'),
     { ssr: false }
 );
 
-// ImageItem arayüzünü basitleştirdik
 interface ImageItem {
     src: string;
     thumbnailSrc: string;
     alt: string;
     caption: string;
-    dataSize: string; // "genişlikxyükseklik" formatında
+    width?: number;
+    height?: number;
 }
 
-const Gallery: React.FC = () => {
-    const lightboxRef = useRef<any>(null);
+interface GalleryProps {
+    initialImages: Omit<ImageItem, 'width' | 'height'>[];
+    galleryId: string; // Yeni prop: Galerinin benzersiz ID'si
+}
 
-    const images: ImageItem[] = [
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
-            alt: "Mistery Prague",
-            caption: "Mistery Prague",
-            dataSize: "1920x1440",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
-            alt: "Second Image",
-            caption: "A beautiful landscape",
-            dataSize: "1200x800",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",
-            alt: "Third Image",
-            caption: "City lights",
-            dataSize: "1000x750",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
-            alt: "Arka Kapak",
-            caption: "Book Back Cover",
-            dataSize: "1000x750",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088556/1_Magnet_us2k6a.jpg",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088556/1_Magnet_us2k6a.jpg",
-            alt: "Magnet",
-            caption: "Promotional Magnet",
-            dataSize: "1000x750",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080954/RollupRender_y6g1wb.png",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080954/RollupRender_y6g1wb.png",
-            alt: "Rollup Banner",
-            caption: "Exhibition Rollup",
-            dataSize: "1000x750",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/KartvizitRender_xudxkp.png",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/KartvizitRender_xudxkp.png",
-            alt: "Business Card",
-            caption: "Business Card Design",
-            dataSize: "1000x750",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/UsbBoxRender_ayj3tw.png",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/UsbBoxRender_ayj3tw.png",
-            alt: "USB Box",
-            caption: "Custom USB Box",
-            dataSize: "1000x750",
-        },
-        {
-            src: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080945/MagnetRender_ihkr4j.png",
-            thumbnailSrc: "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080945/MagnetRender_ihkr4j.png",
-            alt: "Another Magnet",
-            caption: "Another Promotional Magnet",
-            dataSize: "1000x750",
-        }
-    ];
+const Gallery: React.FC<GalleryProps> = ({ initialImages, galleryId }) => { // galleryId'yi proplardan al
+    const lightboxRef = useRef<any>(null);
+    const [images, setImages] = useState<ImageItem[]>([]);
+    const [isGalleryReady, setIsGalleryReady] = useState(false); // Galeri hazır bayrağı
 
     const galleryOptions: JustifiedGallery.Settings = {
         rowHeight: 200,
@@ -97,48 +36,97 @@ const Gallery: React.FC = () => {
         captions: false,
     };
 
+    // Resim boyutlarını yükleme efekti
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            import('photoswipe/lightbox').then(module => {
-                const PhotoSwipeLightbox = module.default;
-                // Gallery.tsx useEffect içinde
-                const lightbox = new PhotoSwipeLightbox({
-                    // ... diğer ayarlar
-                    initialZoomLevel: 'fit', // Resmin viewport'a sığdırılmasını sağlar
-                    secondaryZoomLevel: 'original', // Çift tıklamada orijinal boyutuna zoom yapar
-                    maxZoomLevel: 3, // Maksimum 3 kat zoom
-                    // ...
+        const loadImagesWithDimensions = async () => {
+            const promises = initialImages.map(item => {
+                return new Promise<ImageItem>((resolve) => {
+                    const img = new (window as any).Image();
+                    img.onload = () => {
+                        resolve({
+                            ...item,
+                            width: img.naturalWidth,
+                            height: img.naturalHeight,
+                        });
+                    };
+                    img.onerror = () => {
+                        console.error(`Failed to load image: ${item.src}. Using fallback dimensions.`);
+                        resolve({ ...item, width: 800, height: 600 }); // Varsayılan değerler
+                    };
+                    img.src = item.src;
                 });
-
-                lightbox.init();
-                lightboxRef.current = lightbox;
-
-            }).catch(error => {
-                console.error("PhotoSwipeLightbox import or initialization failed:", error);
             });
 
-            return () => {
-                if (lightboxRef.current) {
-                    lightboxRef.current.destroy();
-                    lightboxRef.current = null;
-                }
-            };
+            const loadedImages = await Promise.all(promises);
+            setImages(loadedImages);
+            // Tüm resimler yüklendiğinde ve boyutlar belirlendiğinde Justified Gallery'nin yeniden düzenlenmesini tetikleyebiliriz.
+            // Justified Gallery'nin bu duruma nasıl tepki verdiğini dokümantasyonundan kontrol edin.
+            // Genellikle yeniden render edildiğinde veya bir metot çağrıldığında kendini günceller.
+            // Eğer JustifiedGalleryWrapper bunu otomatik yapmıyorsa, manuel bir tetikleyici gerekebilir.
+            // Şimdilik sadece PhotoSwipe için hazır olduğunu işaretliyoruz.
+            setIsGalleryReady(true); // Resimler ve boyutlar hazır
+        };
+
+        if (typeof window !== 'undefined' && initialImages.length > 0) {
+            loadImagesWithDimensions();
+        } else if (initialImages.length === 0) {
+            // Eğer hiç resim yoksa, yükleme durumunu sıfırla
+            setImages([]);
+            setIsGalleryReady(false);
         }
-    }, []); // Bağımlılık dizisi boş bırakılabilir
+    }, [initialImages]);
+
+    useEffect(() => {
+        if (typeof window === 'undefined' || !isGalleryReady) {
+            return;
+        }
+
+        let currentLightbox: any = null; // Use a local variable for immediate cleanup
+
+        import('photoswipe/lightbox').then(module => {
+            const PhotoSwipeLightbox = module.default;
+            currentLightbox = new PhotoSwipeLightbox({ // Assign to local variable
+                gallery: `#${galleryId}`,
+                children: 'a',
+                pswpModule: () => import('photoswipe').then(pswp => pswp.default),
+                initialZoomLevel: 'fit',
+                secondaryZoomLevel: 1,
+                maxZoomLevel: 3,
+                ui: {
+                    caption: { display: 'block' },
+                },
+            });
+
+            currentLightbox.init();
+            lightboxRef.current = currentLightbox; // Assign to ref AFTER init
+
+        }).catch(error => {
+            console.error("PhotoSwipeLightbox import or initialization failed:", error);
+        });
+
+        return () => {
+            // Ensure we destroy the specific instance created by THIS effect run
+            if (currentLightbox) { // Use the local variable here
+                console.log(`Destroying PhotoSwipeLightbox for galleryId: ${galleryId}`);
+                currentLightbox.destroy();
+                // No need to set lightboxRef.current = null here, as the next effect run will overwrite it
+            }
+        };
+    }, [isGalleryReady, galleryId]);
 
     const handleItemClick = (index: number) => {
-        // PhotoSwipe'a tüm resim öğelerini gönderiyoruz
         const pswpItems = images.map(item => {
-            const [width, height] = item.dataSize.split('x').map(Number);
+            // width ve height mutlaka Number olmalı ve NaN/undefined olmamalı
+            const width = item.width || 800; // Varsayılan değer atama
+            const height = item.height || 600; // Varsayılan değer atama
             return {
                 src: item.src,
                 width: width,
                 height: height,
-                caption: item.caption, // PhotoSwipe'ın kendi altyazısını kullan
+                caption: item.caption,
             };
         });
 
-        // PhotoSwipe'ı tıklanan öğenin indeksiyle açıyoruz
         if (lightboxRef.current) {
             lightboxRef.current.loadAndOpen(index, pswpItems);
         } else {
@@ -148,22 +136,27 @@ const Gallery: React.FC = () => {
 
     return (
         <>
-            {/* Görünüm seçim butonları kaldırıldı */}
-
-            <DynamicJustifiedGalleryWrapper options={galleryOptions} id="portfolioGallery" className="p-4">
-                {images.map((image, index) => (
-                    <GalleryItem
-                        key={index}
-                        index={index}
-                        onClick={handleItemClick}
-                        src={image.src}
-                        thumbnailSrc={image.src}
-                        alt={image.alt}
-                        caption={image.caption}
-                        dataSize={image.dataSize}
-                    />
-                ))}
-            </DynamicJustifiedGalleryWrapper>
+            {isGalleryReady ? ( // Galeri hazır olduğunda render et
+                <DynamicJustifiedGalleryWrapper options={galleryOptions} id={galleryId}>
+                    {images.map((image, index) => (
+                        <GalleryItem
+                            key={index}
+                            index={index}
+                            onClick={handleItemClick}
+                            src={image.src}
+                            thumbnailSrc={image.thumbnailSrc}
+                            alt={image.alt}
+                            caption={image.caption}
+                        // Justified Gallery'nin de doğru boyutları kullanması için bu attributeleri ekleyebiliriz
+                        // Eğer JustifiedGalleryWrapper bunları zaten render ediyorsa gereksiz olabilir.
+                        // dataWidth={image.width} // Örnek
+                        // dataHeight={image.height} // Örnek
+                        />
+                    ))}
+                </DynamicJustifiedGalleryWrapper>
+            ) : (
+                <div className="text-center text-[var(--foreground)] mt-10">Resimler yükleniyor...</div>
+            )}
         </>
     );
 };
