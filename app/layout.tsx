@@ -1,11 +1,6 @@
-import { useState, useEffect } from "react";
-// app/layout.tsx
-import type { Metadata } from "next";
-import TransitionOverlay from "@/components/TransitionOverlay";
-
+import ClientRoot from "@/components/OnePageParts/ClientRoot";
 import { Poppins, Open_Sans } from "next/font/google";
-import "./globals.css";
-
+import Footer from "@/components/OnePageParts/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,22 +18,38 @@ const opensans = Open_Sans({
   style: ["normal", "italic"],
 });
 
-export const metadata: Metadata = {
-  title: "Dorukhan KILIÇASLAN",
-  description: "Porfolio Website",
+export const metadata = {
+  title: "Dorukhan KILIÇASLAN | Portföy",
+  keywords: [
+    "Dorukhan Kılıçaslan",
+    "Portföy",
+    "Web Geliştirici",
+    "Yazılım Mühendisi",
+    "Frontend Developer",
+    "Backend Developer",
+    "Full Stack Developer",
+  ],
+  description: "Dorukhan Kılıçaslan'ın kişisel portföyü",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" >
-      <body className={` ${poppins.variable} ${opensans.variable} `} style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}>
-        <div className="page-content-wrapper">
-          {children}
-        </div>
+    <html
+      lang="tr"
+      className={`${poppins.variable} ${opensans.variable} 
+      scroll-smooth m-0 p-0 bg-transparent 
+      text-[var(--foreground)] font-[poppins] 
+      flex min-h-screen`}
+    >
+      <body>
+        <ClientRoot>{children}</ClientRoot>
       </body>
     </html>
   );

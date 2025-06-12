@@ -1,0 +1,26 @@
+{
+  "about": {
+    "tr": {
+      "description": "Tasarım, yazılım ve 3D modelleme gibi farklı alanlarda üretim yapmaktan keyif alıyorum. Görsel estetikle teknik çözüm üretmenin kesiştiği alanlarda çalışmak, hem yaratıcı hem de analitik düşünmemi sağlıyor.\n\nGrafik tasarım, web arayüz geliştirme ve 3D görselleştirme alanlarında aktifim. React, Blender, Illustrator gibi araçlarla kullanıcı odaklı, modern ve işlevsel projeler geliştiriyorum. Estetik anlayışımı, kullanıcı deneyimi ilkeleriyle birleştirerek dijital ürünler ortaya koyuyorum.\n\nDisiplinler arası bakış açısına ve farklı sektörlerde edindiğim deneyimlere sahibim. Hem yaratıcı hem teknik süreçlerde rol almak, detaylara verdiğim önemin yanı sıra ekip içi uyum ve hızlı adaptasyon kabiliyetimi de öne çıkarıyor.\n\nKariyerimi tasarım ile teknolojinin buluştuğu alanda ilerletmek istiyorum. Yeni araçlar öğrenmeye, farklı projelerde sorumluluk almaya ve her üretim sürecinde gelişmeye istekliyim. Merak, tutku ve öğrenme motivasyonu benim için ön planda."
+    },
+    "en": {
+      "description": "I enjoy working across different fields like design, software, and 3D modeling. Being involved in both visual and technical aspects helps me think creatively while staying solution-oriented.\n\nI’m active in graphic design, web interface development, and 3D visualization. I use tools like React, Blender, and Illustrator to create modern, user-friendly, and visually consistent digital products.\n\nWith experience across different industries, I’ve developed an interdisciplinary approach and adaptability. I care about details, clear communication, and being a collaborative team member in fast-paced projects.\n\nI aim to grow in the space where design and technology meet. I'm curious, eager to learn new tools, and always open to taking on new challenges that push my skills further."
+    }
+  },
+  "experience": {
+    "tr": {
+      "description": "Deneyim alanım, grafik tasarım, web arayüz geliştirme ve 3D görselleştirme gibi çeşitli disiplinleri kapsıyor. React, Blender ve Illustrator gibi araçlarla kullanıcı odaklı projeler geliştiriyorum."
+    },
+    "en": {
+      "description": "My experience spans graphic design, web interface development, and 3D visualization. I create user-centered projects using tools like React, Blender, and Illustrator."
+    }
+  },
+  "projects": {
+    "tr": {
+      "description": "Projelerim, kullanıcı odaklı, modern ve işlevsel tasarımlar üzerine odaklanıyor. React, Blender ve Illustrator gibi araçlarla görsel estetik ve teknik çözümleri bir araya getiriyorum."
+    },
+    "en": {
+      "description": "My projects focus on user-centered, modern, and functional designs. I combine visual aesthetics with technical solutions using tools like React, Blender, and Illustrator."
+    }
+  }
+}

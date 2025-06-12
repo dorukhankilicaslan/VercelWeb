@@ -1,88 +1,89 @@
 // @/app/page.tsx
-"use client" // Bu satırın olduğundan emin olun
+"use client";
+import { useEffect, useRef, useState } from "react";
 
-import SideNavbar from "@/components/SideNavbar";
-import HomePage from "@/pages/HomePage/HomePage";
-import AboutPage from "@/pages/AboutPage/AboutPage";
-import ContactPage from "@/pages/ContactPage/ContactPage";
-import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage";
+import SpotlightBackground from "@/components/OnePageParts/SpotlightBackground";
 
-import TransitionOverlay from "@/components/TransitionOverlay";
+import AboutSection from "@/components/OnePageParts/AboutSection";
+import ExperienceSection from "@/components/OnePageParts/ExperienceSection";
+import ProjectsSection from "@/components/OnePageParts/ProjectsSection";
 
-import Preloader from "@/components/Preloader";
+import Sidebar from "@/components/OnePageParts/Sidebar";
+import Footer from "@/components/OnePageParts/Footer";
 
-import { useState, useEffect } from "react";
+import SectionTitle from "@/components/OnePageParts/SectionTitle";
 
-export default function App() {
-  // localStorage'dan başlangıç sayfasını oku veya varsayılan olarak #home kullan
-  // State'i varsayılan bir değerle başlat, hidrasyon sonrası localStorage'dan güncelle
-  const [currentPage, setPage] = useState("#home");
-  const [showOverlay, setShowOverlay] = useState(false);
-  const [isAppReady, setIsAppReady] = useState(false);
+import "./globals.css";
 
-  // Bileşen mount olduktan sonra localStorage'dan değeri oku ve state'i güncelle.
+export default function OnePageCV() {
+  const aboutRef = useRef<HTMLElement>(null);
+  const experienceRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
+
+  const [activeSection, setActiveSection] = useState("about");
+
   useEffect(() => {
-    const initializeApp = async () => {
-      const startTime = Date.now();
-      let pageFromStorage = "#home"; // Varsayılan sayfa
+    event.preventDefault();
+    window.scrollBy({ top: event.deltaY, behavior: "smooth" });
+  });
 
-      if (typeof window !== 'undefined') {
-        const savedPage = localStorage.getItem("currentPage");
-        if (savedPage) {
-          pageFromStorage = savedPage;
+  useEffect(() => {
+    const sectionRefs = [
+      { id: "about", ref: aboutRef },
+      { id: "experience", ref: experienceRef },
+      { id: "projects", ref: projectsRef },
+      { id: "contact", ref: contactRef },
+    ];
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .map((entry) => ({
+            id: sectionRefs.find((s) => s.ref.current === entry.target)?.id,
+            top: entry.boundingClientRect.top,
+          }))
+          .filter((s) => s.id);
+
+        if (visibleSections.length > 0) {
+          visibleSections.sort((a, b) => a.top - b.top);
+          setActiveSection(visibleSections[0].id!);
         }
-      }
-      setPage(pageFromStorage);
-      const timeElapsed = Date.now() - startTime;
-      const minLoadTime = 500; // Minimum yükleme süresi (0.5 saniye)
-      const remainingTime = Math.max(0, minLoadTime - timeElapsed);
+      },
+      { threshold: 0.25 }
+    );
 
-      setTimeout(() => {
-        setIsAppReady(true); // Uygulama hazır, preloader animasyonla çıkabilir
-      }, remainingTime);
-    }
-    initializeApp();
-  }, []); // Boş bağımlılık dizisi: sadece bileşen mount olduğunda çalışır
+    sectionRefs.forEach(({ ref }) => {
+      if (ref.current) observer.observe(ref.current);
+    });
 
-  // currentPage her değiştiğinde localStorage'a kaydet.
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem("currentPage", currentPage);
-    }
-  }, [currentPage]); // currentPage değiştiğinde localStorage'ı güncelle
-  const handlePageChange = (page: string) => {
-    // perdeyi indir
-    setShowOverlay(true);
-
-    // 500ms sonra sayfayı değiştir ve perdeyi kaldır
-    setTimeout(() => {
-      setPage(page);
-      setShowOverlay(false);
-    }, 500);
-  };
-
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case "#home": return <HomePage setPage={handlePageChange} />;
-      case "#about": return <AboutPage />;
-      case "#portfolio": return <PortfolioPage />;
-      case "#contact": return <ContactPage />;
-      default: return <HomePage />;
-    }
-  };
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
-      <Preloader isAppReady={isAppReady} />
-      {isAppReady && (
-        <>
-          <TransitionOverlay show={showOverlay} />
-          <SideNavbar currentPage={currentPage} setPage={handlePageChange} />
-          <div className="page-content-wrapper">
-            {renderCurrentPage()}
-          </div>
-        </>
-      )}
+      <SpotlightBackground />
+      <div className="md:flex justify-center h-screen mt-20 md:mt-0">
+        <div className="px-4 md:pl-8 lg:pl-16">
+          <Sidebar activeSection={activeSection} />
+        </div>
+        <main
+          className="flex-1 h-screen
+          md:overflow-y-scroll md:scroll-smooth
+          px-4 md:px-8 xl:px-16"
+        >
+          <SectionTitle title="Hakkımda" />
+          <AboutSection aboutRef={aboutRef} />
+
+          <SectionTitle title="İş Deneyimlerim" />
+          <ExperienceSection experienceRef={experienceRef} />
+
+          <SectionTitle title="Projelerim" />
+          <ProjectsSection projectsRef={projectsRef} />
+          <Footer />
+        </main>
+      </div>
     </>
   );
 }
