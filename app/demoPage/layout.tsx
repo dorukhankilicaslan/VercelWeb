@@ -38,7 +38,7 @@ export default function DemoPageLayout({
         minHeight: "100vh",
       }}
     >
-      {children}+{" "}
+      {children}{" "}
     </div>
   );
 }
