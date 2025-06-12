@@ -10,7 +10,7 @@ import {
   FaEnvelopeOpen,
   FaPhoneSquare,
 } from "react-icons/fa";
-import ContactForm from "@/components/ContactForm"; // Import the new ContactForm component
+import ContactForm from "@/components/DemoPageParts/ContactForm"; // Import the new ContactForm component
 
 export default function ContactPage() {
   return (

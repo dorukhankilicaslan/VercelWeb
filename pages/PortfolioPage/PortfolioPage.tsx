@@ -1,7 +1,7 @@
 // src/pages/PortfolioPage/PortfolioPage.tsx
 
 import React from "react";
-import Gallery from "@/components/Gallery";
+import Gallery from "@/components/DemoPageParts/Gallery";
 import portfolioData from "@/data/portfolioData.json"; // JSON dosyasını import et
 
 // ImageItem arayüzünü burada da tanımlayalım veya ayrı bir types.ts dosyasında tutalım

@@ -2,9 +2,9 @@
 "use client";
 import React, { forwardRef } from 'react';
 
-import PersonalInfo from '@/components/PersonalInfo';
-import ExperienceSection from '@/components/ExpirenceSection';
-import SkillsSection from '@/components/SkillsSection';
+import PersonalInfo from '@/components/DemoPageParts/PersonalInfo';
+import ExperienceSection from '@/components/DemoPageParts/ExpirenceSection';
+import SkillsSection from '@/components/DemoPageParts/SkillsSection';
 
 
 const AboutPage = forwardRef<HTMLDivElement>((props, ref) => {

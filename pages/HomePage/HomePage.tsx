@@ -1,8 +1,8 @@
 // @/pages/HomePage/HomePage.tsx
 import React, { forwardRef } from "react";
 import Image from "next/image";
-import SlidingButton from "@/components/SlidingButton";
-import HoverCard from "@/components/HoverCard/HoverCard";
+import SlidingButton from "@/components/DemoPageParts/SlidingButton";
+import HoverCard from "@/components/DemoPageParts/HoverCard/HoverCard";
 
 const HomePage = forwardRef<
   HTMLDivElement,
@@ -93,7 +93,7 @@ const HomePage = forwardRef<
 
             <p
               className="text-sm text-center md:text-lg lg:text-lg xl:text-xl font-semibold mt-4 max-w-70 md:min-w-120 xl:max-w-200 text-wrap md:text-left
-              break-words md:text-center lg:text-start"
+              break-words lg:text-start"
               style={{ fontFamily: "Open Sans", color: "var(--foreground)" }}
             >
               Temiz, kullanıcı odaklı ve estetik deneyimler yaratmaya
