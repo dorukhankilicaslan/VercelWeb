@@ -24,11 +24,6 @@ export default function OnePageCV() {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
-    event.preventDefault();
-    window.scrollBy({ top: event.deltaY, behavior: "smooth" });
-  });
-
-  useEffect(() => {
     const sectionRefs = [
       { id: "about", ref: aboutRef },
       { id: "experience", ref: experienceRef },

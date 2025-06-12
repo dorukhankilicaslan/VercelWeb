@@ -1,6 +1,5 @@
 import ClientRoot from "@/components/OnePageParts/ClientRoot";
 import { Poppins, Open_Sans } from "next/font/google";
-import Footer from "@/components/OnePageParts/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],

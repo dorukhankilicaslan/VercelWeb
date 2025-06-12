@@ -8,9 +8,9 @@ import {
   FaCodepen,
   FaInstagram,
   FaEnvelopeOpen,
-  FaPhoneSquare,
 } from "react-icons/fa";
-import ContactForm from "@/components/DemoPageParts/ContactForm"; // Import the new ContactForm component
+
+import ContactForm from "@/components/DemoPageParts/ContactForm";
 
 export default function ContactPage() {
   return (

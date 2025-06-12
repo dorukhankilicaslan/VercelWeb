@@ -6,7 +6,7 @@ import HoverCard from "@/components/DemoPageParts/HoverCard/HoverCard";
 
 const HomePage = forwardRef<
   HTMLDivElement,
-  { setPage: React.Dispatch<React.SetStateAction<string>> }
+  { setPage: (page: string) => void }
 >(({ setPage }, ref) => {
   return (
     <div

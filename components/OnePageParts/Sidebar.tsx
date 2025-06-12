@@ -53,11 +53,11 @@ export default function Sidebar({ activeSection }: SidebarProps) {
 
         {/* ALINTI */}
         <p className="italic font-serif mt-6 mb-2 leading-7 text-sm lg:text-base xl:text-lg">
-          "Çok disiplinli bir tasarımcı olarak,
+          &quot;Çok disiplinli bir tasarımcı olarak,
           <br className="inline" />
           netlik ve kullanıcı deneyimini
           <br className="inline" />
-          ön planda tutuyorum."
+          ön planda tutuyorum.&quot;
         </p>
 
         {/* ----- HAMBURGER MENU BUTTON ----- */}

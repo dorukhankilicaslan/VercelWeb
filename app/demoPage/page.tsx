@@ -72,7 +72,7 @@ export default function App() {
       case "#contact":
         return <ContactPage />;
       default:
-        return <HomePage />;
+        return <HomePage setPage={handlePageChange} />;
     }
   };
 
