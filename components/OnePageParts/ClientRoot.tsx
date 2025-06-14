@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SpotlightBackground from "@/components/OnePageParts/SpotlightBackground";
 import LoadingOverlay from "@/components/OnePageParts/LoadingOverlay";
 import { LocalizationProvider } from "./LocalizationProvider";
+import { usePathname } from "next/navigation";
 
 export default function ClientRoot({
   children,
@@ -10,6 +11,7 @@ export default function ClientRoot({
   children: React.ReactNode;
 }) {
   const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.classList.add("onepage-body");
@@ -29,10 +31,15 @@ export default function ClientRoot({
   }, []);
 
   return (
-    <LocalizationProvider>
-      <SpotlightBackground />
-      {loading && <LoadingOverlay />}
-      {children}
-    </LocalizationProvider>
+    <>
+      {pathname === "/" && (
+        <LocalizationProvider>
+          <SpotlightBackground />
+          {loading && <LoadingOverlay />}
+          {children}
+        </LocalizationProvider>
+      )}
+      {pathname !== "/" && { children }}
+    </>
   );
 }

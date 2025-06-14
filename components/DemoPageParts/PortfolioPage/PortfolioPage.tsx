@@ -1,4 +1,4 @@
-// src/pages/PortfolioPage/PortfolioPage.tsx
+// @/components/PortfolioPage/PortfolioPage.tsx
 
 import React from "react";
 import Gallery from "@/components/DemoPageParts/Gallery";

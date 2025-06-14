@@ -27,11 +27,11 @@ const ContactForm: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setFormMessage('Sending message...');
+        setFormMessage('Mesaj gönderiliyor...');
         setMessageType('');
 
         if (!formData.name || !formData.email || !formData.message) {
-            setFormMessage('Please fill in all required fields (Name, Email, Message).');
+            setFormMessage('Lütfen bütün bölmeleri doldurun (Ad Soyad, Email, Mesaj).');
             setMessageType('error');
             return;
         }
@@ -69,7 +69,7 @@ const ContactForm: React.FC = () => {
 
         // For demonstration, simulate a successful submission
         setTimeout(() => {
-            setFormMessage('Your message has been sent successfully!');
+            setFormMessage('Mesajınız başarıyla gönderildi!');
             setMessageType('success');
             setFormData({ name: '', email: '', subject: '', message: '' });
         }, 1500);

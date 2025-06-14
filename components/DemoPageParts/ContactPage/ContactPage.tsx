@@ -1,4 +1,4 @@
-// pages/ContactPage/ContactPage.tsx
+// @/components/ContactPage/ContactPage.tsx
 "use client";
 
 import React from "react";
@@ -39,7 +39,7 @@ export default function ContactPage() {
 
             <a
               className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-300 relative my-5 block group"
-              href="mailto:steve@mail.com"
+              href="mailto:drkhn.dk@gmail.com"
             >
               {/* İkon rengi için text-primary, hover'da değişmesine gerek yok çünkü zaten primary */}
               <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl text-primary">
@@ -48,7 +48,7 @@ export default function ContactPage() {
               <span className="block pl-12 pt-[2px] font-bold text-[var(--foreground)] opacity-80">
                 Mail :{" "}
               </span>
-              <p className="ml-12 font-semibold">steve@mail.com</p>
+              <p className="ml-12 font-semibold">drkhn.dk@gmail.com</p>
             </a>
 
             <ul className="list-none pt-1 my-5 flex space-x-6">

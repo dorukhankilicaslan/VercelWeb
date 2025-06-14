@@ -1,4 +1,4 @@
-// @/pages/HomePage/HomePage.tsx
+// @/components/HomePage/HomePage.tsx
 import React, { forwardRef } from "react";
 import Image from "next/image";
 import SlidingButton from "@/components/DemoPageParts/SlidingButton";
@@ -62,7 +62,7 @@ const HomePage = forwardRef<
                   />
                   <span
                     className="uppercase text-[var(--primary)] 
-                    text-4xl md:text-5xl xl:text-6xl
+                    text-4xl md:text-5xl lg:text-4xl xl:text-6xl
                     leading-8 md:leading-tight md:whitespace-nowrap"
                   >
                     <span>Dorukhan </span>

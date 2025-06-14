@@ -44,7 +44,7 @@ export default function SpotlightBackground() {
       gradient.addColorStop(1, hexToRgba(bgColor, 0));
       ctx.globalCompositeOperation = "lighter";
       ctx.fillStyle = gradient;
-      ctx.fillRect(x - 700, y - 700, 1400, 1400);
+      ctx.fillRect(x - 1050, y - 1050, 2100, 2100);
       ctx.globalCompositeOperation = "source-over";
     }
 

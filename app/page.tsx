@@ -2,8 +2,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-import SpotlightBackground from "@/components/OnePageParts/SpotlightBackground";
-
 import AboutSection from "@/components/OnePageParts/AboutSection";
 import ExperienceSection from "@/components/OnePageParts/ExperienceSection";
 import ProjectsSection from "@/components/OnePageParts/ProjectsSection";
@@ -13,7 +11,6 @@ import Footer from "@/components/OnePageParts/Footer";
 
 import SectionTitle from "@/components/OnePageParts/SectionTitle";
 
-import "./globals.css";
 
 export default function OnePageCV() {
   const aboutRef = useRef<HTMLElement>(null);
@@ -58,7 +55,6 @@ export default function OnePageCV() {
 
   return (
     <>
-      <SpotlightBackground />
       <div className="md:flex justify-center h-screen mt-20 md:mt-0">
         <div className="px-4 md:pl-8 lg:pl-16">
           <Sidebar activeSection={activeSection} />

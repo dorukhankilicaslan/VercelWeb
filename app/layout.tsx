@@ -1,5 +1,10 @@
+// app/layout.tsx
 import ClientRoot from "@/components/OnePageParts/ClientRoot";
 import { Poppins, Open_Sans } from "next/font/google";
+import "./globals.css";
+
+import ThemeProvider from "@/components/Admin/ThemeProvider";
+import Preloader from "@/components/DemoPageParts/Preloader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -47,8 +52,11 @@ export default function RootLayout({
       text-[var(--foreground)] font-[poppins] 
       flex min-h-screen`}
     >
+      <head></head>
       <body>
-        <ClientRoot>{children}</ClientRoot>
+        <ThemeProvider>
+          <ClientRoot>{children}</ClientRoot>
+        </ThemeProvider>
       </body>
     </html>
   );

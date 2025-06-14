@@ -42,7 +42,7 @@ export default function Preloader({ isAppReady }: PreloaderProps) {
                     {/* Örnek bir logo veya metin ekleyebilirsiniz */}
                     {/* <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">SİTENİZ</h1> */}
                     <div className="w-16 h-16 border-4 border-[var(--primary)] border-t-transparent rounded-full animate-spin"></div>
-                    {/* <p className="mt-4 text-lg text-[var(--foreground)]">Yükleniyor...</p> */}
+                    {/* <p className="mt-4 text-lg text-[var(--foreground)]">Yükleniyor...!</p> */}
                 </>
             )}
         </div>

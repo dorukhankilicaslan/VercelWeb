@@ -10,6 +10,8 @@ import {
 } from "react-icons/fa";
 import SidebarNavbarButton from "./SidebarNavbarButton";
 import { useState } from "react";
+import AnimatedOverlay from "@/components/DemoPageParts/AnimatedOverlay";
+import { animations } from "@/data/animations";
 
 // Prop'ların tipini tanımla
 interface SideNavbarProps {
@@ -70,97 +72,92 @@ export default function SideNavbar({ currentPage, setPage }: SideNavbarProps) {
             <FaBars
               size={24}
               className={`absolute top-0 left-0 transition-all duration-300 ease-in-out
-                                        ${
-                                          isMobileMenuOpen
-                                            ? "opacity-0 transform rotate-90 scale-50"
-                                            : "opacity-100 transform rotate-0 scale-100"
-                                        }`}
+                ${
+                  isMobileMenuOpen
+                    ? "opacity-0 transform rotate-90 scale-50"
+                    : "opacity-100 transform rotate-0 scale-100"
+                }`}
             />
             <FaTimes
               size={24}
               className={`absolute top-0 left-0 transition-all duration-300 ease-in-out
-                                        ${
-                                          isMobileMenuOpen
-                                            ? "opacity-100 transform rotate-0 scale-100"
-                                            : "opacity-0 transform -rotate-90 scale-50"
-                                        }`}
+                ${
+                  isMobileMenuOpen
+                    ? "opacity-100 transform rotate-0 scale-100"
+                    : "opacity-0 transform -rotate-90 scale-50"
+                }`}
             />
           </div>
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
+      <AnimatedOverlay
+        isOpen={isMobileMenuOpen}
+        animation={animations.slideInLeft}
+      >
         <div
-          className=" lg:hidden fixed inset-0 z-20 flex flex-col items-center justify-center space-y-8 bg-[var(--background)] bg-opacity-95 backdrop-blur-sm 
-                    transition-all duration-300 ease-in-out 
-                    ${animationClass}"
-          // onClick={() => setIsMobileMenuOpen(false)} // Overlay'a tıklayınca kapat
+          onClick={(e) => e.stopPropagation()}
+          className="flex flex-col space-y-8"
         >
-          {/* Linklerin olduğu iç div, overlay'a tıklamayı engellemek için */}
-          <div
-            className="flex flex-col space-y-8"
-            onClick={(e) => e.stopPropagation()}
+          <a
+            href="#home"
+            onClick={() => handleMobileLinkClick("#home")}
+            className={`text-3xl font-semibold ${
+              currentPage === "#home"
+                ? "text-[var(--primary)]"
+                : "text-[var(--foreground)]"
+            } hover:text-[var(--primary)] transition-colors`}
           >
-            <a
-              href="#home"
-              onClick={() => handleMobileLinkClick("#home")}
-              className={`text-3xl font-semibold ${
-                currentPage === "#home"
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--foreground)]"
-              } hover:text-[var(--primary)] transition-colors`}
-            >
-              <span className="col flex flex-nowrap items-center">
-                <FaHome className="mr-4" size={24} />
-                Anasayfa
-              </span>
-            </a>
-            <a
-              href="#about"
-              onClick={() => handleMobileLinkClick("#about")}
-              className={`text-3xl font-semibold ${
-                currentPage === "#about"
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--foreground)]"
-              } hover:text-[var(--primary)] transition-colors`}
-            >
-              <span className="col flex flex-nowrap items-center">
-                <FaUser className="mr-4" size={24} />
-                Hakkımda
-              </span>
-            </a>
-            <a
-              href="#portfolio"
-              onClick={() => handleMobileLinkClick("#portfolio")}
-              className={`text-3xl font-semibold ${
-                currentPage === "#portfolio"
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--foreground)]"
-              } hover:text-[var(--primary)] transition-colors`}
-            >
-              <span className="col flex flex-nowrap items-center">
-                <FaToolbox className="mr-4" size={24} />
-                Çalışmalar
-              </span>
-            </a>
-            <a
-              href="#contact"
-              onClick={() => handleMobileLinkClick("#contact")}
-              className={`text-3xl font-semibold ${
-                currentPage === "#contact"
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--foreground)]"
-              } hover:text-[var(--primary)] transition-colors`}
-            >
-              <span className="col flex flex-nowrap items-center">
-                <FaEnvelopeOpen className="mr-4" size={24} />
-                İletişim
-              </span>
-            </a>
-          </div>
+            <span className="col flex flex-nowrap items-center">
+              <FaHome className="mr-4" size={24} />
+              Anasayfa
+            </span>
+          </a>
+          <a
+            href="#about"
+            onClick={() => handleMobileLinkClick("#about")}
+            className={`text-3xl font-semibold ${
+              currentPage === "#about"
+                ? "text-[var(--primary)]"
+                : "text-[var(--foreground)]"
+            } hover:text-[var(--primary)] transition-colors`}
+          >
+            <span className="col flex flex-nowrap items-center">
+              <FaUser className="mr-4" size={24} />
+              Hakkımda
+            </span>
+          </a>
+          <a
+            href="#portfolio"
+            onClick={() => handleMobileLinkClick("#portfolio")}
+            className={`text-3xl font-semibold ${
+              currentPage === "#portfolio"
+                ? "text-[var(--primary)]"
+                : "text-[var(--foreground)]"
+            } hover:text-[var(--primary)] transition-colors`}
+          >
+            <span className="col flex flex-nowrap items-center">
+              <FaToolbox className="mr-4" size={24} />
+              Çalışmalar
+            </span>
+          </a>
+          <a
+            href="#contact"
+            onClick={() => handleMobileLinkClick("#contact")}
+            className={`text-3xl font-semibold ${
+              currentPage === "#contact"
+                ? "text-[var(--primary)]"
+                : "text-[var(--foreground)]"
+            } hover:text-[var(--primary)] transition-colors`}
+          >
+            <span className="col flex flex-nowrap items-center">
+              <FaEnvelopeOpen className="mr-4" size={24} />
+              İletişim
+            </span>
+          </a>
         </div>
-      )}
+      </AnimatedOverlay>
     </>
   );
 }

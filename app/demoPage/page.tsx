@@ -2,10 +2,11 @@
 "use client"; // Bu satırın olduğundan emin olun
 
 import SideNavbar from "@/components/DemoPageParts/SideNavbar";
-import HomePage from "@/pages/HomePage/HomePage";
-import AboutPage from "@/pages/AboutPage/AboutPage";
-import ContactPage from "@/pages/ContactPage/ContactPage";
-import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage";
+
+import HomePage from "@/components/DemoPageParts/HomePage/HomePage";
+import AboutPage from "@/components/DemoPageParts/AboutPage/AboutPage";
+import ContactPage from "@/components/DemoPageParts/ContactPage/ContactPage";
+import PortfolioPage from "@/components/DemoPageParts/PortfolioPage/PortfolioPage";
 
 import TransitionOverlay from "@/components/DemoPageParts/TransitionOverlay";
 
