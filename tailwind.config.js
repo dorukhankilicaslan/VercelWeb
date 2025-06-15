@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-poppins)", "sans-serif"],
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
 

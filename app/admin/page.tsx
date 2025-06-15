@@ -1,6 +1,6 @@
 // @/app/admin/page.tsx
 
-import AdminPageClient from "../../components/Admin/AdminPageClient";
+import AdminPageClient from "./components/AdminPageClient";
 
 export default function AdminPage() {
   return <AdminPageClient />;

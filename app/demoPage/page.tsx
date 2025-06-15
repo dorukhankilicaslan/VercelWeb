@@ -1,18 +1,17 @@
 // @/app/page.tsx
 "use client"; // Bu satırın olduğundan emin olun
-
-import SideNavbar from "@/components/DemoPageParts/SideNavbar";
-
-import HomePage from "@/components/DemoPageParts/HomePage/HomePage";
-import AboutPage from "@/components/DemoPageParts/AboutPage/AboutPage";
-import ContactPage from "@/components/DemoPageParts/ContactPage/ContactPage";
-import PortfolioPage from "@/components/DemoPageParts/PortfolioPage/PortfolioPage";
-
-import TransitionOverlay from "@/components/DemoPageParts/TransitionOverlay";
-
-import Preloader from "@/components/DemoPageParts/Preloader";
-
 import { useState, useEffect } from "react";
+
+import SideNavbar from "./components/SideNavbar";
+
+import HomePage from "./components/HomePage/HomePage";
+import AboutPage from "./components/AboutPage/AboutPage";
+import ContactPage from "./components/ContactPage/ContactPage";
+import PortfolioPage from "./components/PortfolioPage/PortfolioPage";
+
+import TransitionOverlay from "./components/TransitionOverlay";
+
+import Preloader from "./components/Preloader";
 
 export default function App() {
   // localStorage'dan başlangıç sayfasını oku veya varsayılan olarak #home kullan
@@ -35,7 +34,7 @@ export default function App() {
       }
       setPage(pageFromStorage);
       const timeElapsed = Date.now() - startTime;
-      const minLoadTime = 500; // Minimum yükleme süresi (0.5 saniye)
+      const minLoadTime = 1000; // Minimum yükleme süresi (0.5 saniye)
       const remainingTime = Math.max(0, minLoadTime - timeElapsed);
 
       setTimeout(() => {
@@ -58,8 +57,10 @@ export default function App() {
     // 500ms sonra sayfayı değiştir ve perdeyi kaldır
     setTimeout(() => {
       setPage(page);
+    }, 300);
+    setTimeout(() => {
       setShowOverlay(false);
-    }, 500);
+    }, 1000);
   };
 
   const renderCurrentPage = () => {
@@ -80,13 +81,9 @@ export default function App() {
   return (
     <>
       <Preloader isAppReady={isAppReady} />
-      {isAppReady && (
-        <>
-          <TransitionOverlay show={showOverlay} />
-          <SideNavbar currentPage={currentPage} setPage={handlePageChange} />
-          <div className="page-content-wrapper">{renderCurrentPage()}</div>
-        </>
-      )}
+      <TransitionOverlay show={showOverlay} />
+      <SideNavbar currentPage={currentPage} setPage={handlePageChange} />
+      <div className="page-content-wrapper">{renderCurrentPage()}</div>
     </>
   );
 }
