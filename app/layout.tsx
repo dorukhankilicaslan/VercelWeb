@@ -3,6 +3,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import ThemeProvider from "./ThemeProvider"; // ThemeProvider'ı import edin
+
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -35,7 +37,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${poppins.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

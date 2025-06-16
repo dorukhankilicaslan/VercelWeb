@@ -62,7 +62,7 @@ const HomePage = forwardRef<
                   />
                   <span
                     className="uppercase text-[var(--primary)] 
-                    text-4xl md:text-5xl lg:text-4xl xl:text-[3.25rem] 2xl:text-[5rem]
+                    text-4xl md:text-5xl lg:text-4xl xl:text-[3.25rem] 2xl:text-[4rem] 2xl:font-bold
                     leading-8 md:leading-tight md:whitespace-nowrap"
                   >
                     <span>Dorukhan </span>

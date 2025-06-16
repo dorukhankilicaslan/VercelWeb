@@ -27,6 +27,8 @@ export default function LoadingOverlay() {
           src="/DK_LogoWhite.png"
           alt="Logo"
           className="w-14 h-14 object-contain z-10"
+          width={100}
+          height={100}
         />
       </div>
     </div>
