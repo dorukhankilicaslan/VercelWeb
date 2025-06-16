@@ -26,7 +26,6 @@
     "--accent": "#14b8a6",
     "--border": "#cbd5e1",
 
-    "--passive": "#d1d5db",
     "--success": "#31ab65",
     "--warning": "#ec3e4c"
   },
@@ -41,7 +40,6 @@
     "--accent": "#5eead4",
     "--border": "#233554",
 
-    "--passive": "#323232",
     "--success": "#31ab65",
     "--warning": "#ec3e4c"
   }

@@ -133,7 +133,7 @@ body > div:first-child {
 }
 
 .page-content-wrapper::-webkit-scrollbar-track {
-  background: var(--passive);
+  background: var(--foreground)/90;
   border-radius: 10px;
 }
 

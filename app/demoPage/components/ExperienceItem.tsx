@@ -18,7 +18,7 @@ export default function ExperienceItem({
 }: ExperienceItemProps) {
   return (
     <li className="relative mb-8 last:mb-0 pl-14">
-      <span className="absolute top-0 left-7 bottom-0 border-l-2 border- border-[var(--passive)]"></span>
+      <span className="absolute top-0 left-7 bottom-0 border-l-2 border- border-[var(--foreground)]/10"></span>
 
       <div className="flex space-x-4 mb-2 relative -ml-10">
         <div

@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen bg-[var(--background)] overflow-y-auto lg:mx-30 font-[poppins]">
       <h1 className="isolate justify-self-center text-center grid place-items-center mb-10 md:mb-2 lg:mb-10 pt-25 sm:pt-10">
-        <span className="uppercase col-start-1 row-start-1 text-6xl sm:text-9xl font-black text-[var(--passive)] z-0">
+        <span className="uppercase col-start-1 row-start-1 text-6xl sm:text-9xl font-black text-[var(--foreground)]/10 z-0">
           contact
         </span>
         <span className="col-start-1 row-start-1 text-4xl sm:text-6xl font-black text-[var(--foreground)] z-1">

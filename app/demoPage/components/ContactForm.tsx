@@ -139,7 +139,7 @@ const ContactForm: React.FC = () => {
         <button
           type="submit"
           className={`group relative inline-flex items-center justify-start rounded-full 
-                            w-50 h-12 border-2 border-[var(--passive)] hover:cursor-pointer mt-2`}
+                            w-50 h-12 border-2 border-[var(--foreground)]/10 hover:cursor-pointer mt-2`}
           onClick={() => {}}
         >
           <span

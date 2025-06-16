@@ -27,7 +27,7 @@ const PortfolioPage: React.FC = () => {
   return (
     <div className="relative min-h-screen bg-[var(--background)] overflow-y-auto overflow-x-hidden font-[poppins]">
       <h1 className="isolate justify-self-center text-center grid place-items-center mb-10 pt-25 sm:pt-10">
-        <span className="col-start-1 row-start-1 text-6xl sm:text-9xl font-black text-[var(--passive)] z-0">
+        <span className="col-start-1 row-start-1 text-6xl sm:text-9xl font-black text-[var(--foreground)]/10 z-0">
           PORTFOLIO
         </span>
         <span className="col-start-1 row-start-1 text-4xl sm:text-6xl font-black text-[var(--foreground)] z-1">
@@ -37,7 +37,7 @@ const PortfolioPage: React.FC = () => {
       {projects.map((project) => (
         <div
           key={project.id}
-          className="mx-5 lg:mx-30 my-10 bg-[var(--passive)] rounded-2xl p-[1rem]"
+          className="mx-5 lg:mx-30 my-10 bg-[var(--foreground)]/10 rounded-2xl p-[1rem]"
         >
           <div className="w-full max-w-7xl mx-auto">
             <div className="col-span-full flex flex-col justify-center text-center mb-4">

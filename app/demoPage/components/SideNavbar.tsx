@@ -64,7 +64,7 @@ export default function SideNavbar({ currentPage, setPage }: SideNavbarProps) {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="p-3 rounded-md text-[var(--background)] bg-[var(--primary)] hover:bg-[var(--hover-background)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--primary)] transition-colors duration-200"
           aria-label={isMobileMenuOpen ? "Close main menu" : "Open main menu"}
-          style={{ border: "1px solid var(--passive-border)" }}
+          style={{ border: "1px solid var(--foreground)/10" }}
         >
           <div className="relative w-6 h-6">
             {" "}
