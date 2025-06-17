@@ -20,7 +20,9 @@ export default function ProjectCard({
   return (
     <div
       className={`
-        bg-[var(--experience-background-hover)] border border-[var(--background)] shadow-2xl
+        bg-[var(--background)]/20
+        border border-[var(--background)] 
+        shadow-[0_0_10px_rgba(0,0,0,0.25)]
         rounded-md p-0 mb-4 md:mb-8 relative z-0 overflow-hidden backdrop-blur-md
       `}
     >
@@ -33,7 +35,8 @@ export default function ProjectCard({
         bg-[var(--background)] w-auto h-full shrink-0"
         >
           <button
-            className="w-full h-full border-none bg-none p-0 cursor-pointer rounded-md overflow-hidden"
+            // Image'ı doldurabilmesi için parent'ına relative ekliyoruz
+            className="w-full h-full border-none bg-none p-0 cursor-pointer rounded-md overflow-hidden relative"
             type="button"
             onClick={() => onGalleryClick && onGalleryClick(0)}
             tabIndex={0}
@@ -42,10 +45,10 @@ export default function ProjectCard({
             <Image
               src={mainImage}
               alt={`Proje ana görseli: ${title}`}
-              width={120}
-              height={120}
-              className="w-full h-full object-cover block"
+              fill // width ve height prop'larını kaldırdık, fill kullanıyoruz
+              className="object-cover" // Sadece object-cover yeterli
               priority
+              sizes="(max-width: 768px) 100vw, 120px" // Responsif boyutlar için sizes ekledik
             />
           </button>
         </div>
@@ -60,8 +63,9 @@ export default function ProjectCard({
           </p>
           <div className="flex flex-wrap gap-2 mt-2">
             <button
+              // Image'ı doldurabilmesi için parent'ına relative ekliyoruz
               className="sm:hidden w-10 h-10 border-none bg-[var(--background)] p-0 rounded-md overflow-hidden cursor-pointer 
-              flex items-center justify-center"
+              flex items-center justify-center relative"
               type="button"
               onClick={() => onGalleryClick && onGalleryClick(0)}
               tabIndex={0}
@@ -70,9 +74,9 @@ export default function ProjectCard({
               <Image
                 src={mainImage}
                 alt={`Proje ana görseli: ${title}`}
-                width={40} // Küçük boyut
-                height={40} // Küçük boyut
-                className="w-full h-full object-cover block rounded-md"
+                fill // width ve height prop'larını kaldırdık, fill kullanıyoruz
+                className="object-cover rounded-md" // Sadece object-cover yeterli
+                sizes="40px" // Küçük ekran için sabit boyut belirtiyoruz
               />
             </button>
 
@@ -80,8 +84,9 @@ export default function ProjectCard({
             {gallerySlots.map((img, i) => (
               <button
                 key={i + 1}
+                // Image'ı doldurabilmesi için parent'ına relative ekliyoruz
                 className="w-10 h-10 lg:w-15 lg:h-15 border-none bg-[var(--background)] p-0 rounded-md overflow-hidden cursor-pointer 
-                flex items-center justify-center 
+                flex items-center justify-center relative 
                 transition-shadow duration-200"
                 type="button"
                 onClick={() => onGalleryClick && onGalleryClick(i + 1)}
@@ -92,9 +97,10 @@ export default function ProjectCard({
                   <Image
                     src={img}
                     alt={`Proje görseli ${i + 2}`}
-                    width={40} // Galeri görselleri 40x40
-                    height={40} // Galeri görselleri 40x40
-                    className="w-full h-full object-cover block rounded-md"
+                    fill // width ve height prop'larını kaldırdık, fill kullanıyoruz
+                    className="object-cover rounded-md" // Sadece object-cover yeterli
+                    // Responsive boyutlar için sizes ekledik: küçük ekranlarda 40px, büyüklerde 60px
+                    sizes="(max-width: 768px) 40px, (min-width: 769px) 60px"
                   />
                 ) : (
                   <span className="w-full h-full bg-[var(--background)] rounded-md flex items-center justify-center text-secondary text-xs">

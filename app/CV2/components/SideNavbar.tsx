@@ -29,7 +29,7 @@ export default function SideNavbar({ currentPage, setPage }: SideNavbarProps) {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex absolute top-0 right-[10px] h-dvh items-center pr-5 z-5">
+      <div className="hidden lg:flex flex-col justify-center absolute top-0 right-[10px] h-dvh items-center pr-5 z-5">
         <div className="flex flex-col items-end space-y-4">
           <SidebarNavbarButton
             text="Home"

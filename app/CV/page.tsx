@@ -24,10 +24,6 @@ export default function OnePageCV() {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
-    localStorage.setItem("theme", "dark");
-  }, []);
-
-  useEffect(() => {
     const sectionRefs = [
       { id: "about", ref: aboutRef },
       { id: "experience", ref: experienceRef },
@@ -75,7 +71,7 @@ export default function OnePageCV() {
           <SectionTitle title="İş Deneyimlerim" />
           <ExperienceSection experienceRef={experienceRef} />
 
-          <SectionTitle title="Projelerim" />
+          <SectionTitle title="Çalışmalarım" />
           <ProjectsSection projectsRef={projectsRef} />
           <Footer />
         </main>

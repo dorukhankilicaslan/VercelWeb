@@ -43,14 +43,18 @@ export default function Preloader({ isAppReady }: PreloaderProps) {
         }`}
       >
         <div className="w-24 h-24 animate-spin-slow relative">
-          <div className="absolute inset-0 rounded-full border-4 border-white border-dashed 
-          animate-[spin_10s_linear_infinite]"></div>
+          <div
+            className="absolute inset-0 rounded-full border-4 border-white border-dashed 
+          animate-[spin_10s_linear_infinite]"
+          ></div>
           <Image
             src="/DK_LogoWhite.png"
             alt="Logo"
+            style={{ width: "100%", height: "100%" }}
             width={64}
             height={64}
             className="absolute inset-0 m-auto"
+            priority={true}
           />
         </div>
       </div>

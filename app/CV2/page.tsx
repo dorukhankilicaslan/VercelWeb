@@ -10,7 +10,7 @@ import ContactPage from "./components/ContactPage/ContactPage";
 import PortfolioPage from "./components/PortfolioPage/PortfolioPage";
 
 import TransitionOverlay from "./components/TransitionOverlay";
-
+import ThemeSwitcher from "./components/ThemeSwitcher";
 import Preloader from "./components/Preloader";
 
 export default function App() {
@@ -82,6 +82,7 @@ export default function App() {
     <>
       <Preloader isAppReady={isAppReady} />
       <TransitionOverlay show={showOverlay} />
+      <ThemeSwitcher />
       <SideNavbar currentPage={currentPage} setPage={handlePageChange} />
       <div className="page-content-wrapper">{renderCurrentPage()}</div>
     </>

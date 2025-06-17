@@ -15,12 +15,16 @@ export default function AboutSection({
     <section
       id="about"
       ref={aboutRef}
-      className="flex flex-col justify-center items-center md:min-h-screen scroll-mt-[40px]
+      className="
+      
+      flex flex-col justify-center items-center md:min-h-screen scroll-mt-[40px]
       text-[var(--foreground)] opacity-80"
     >
       <div className="px-0 lg:px-4 ">
         <p
-          className="whitespace-pre-line text-[var(--foreground)]
+          className="
+          
+          whitespace-pre-line text-[var(--foreground)]
         lg:mt-8 xl:mt-[-0.5rem]
         lg:leading-5 xl:leading-6.5 2xl:leading-8
         lg:max-h-screen 

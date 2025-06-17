@@ -17,7 +17,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
   const navItems = [
     { id: "about", label: "Hakkımda" },
     { id: "experience", label: "Deneyimlerim" },
-    { id: "projects", label: "Projelerim" },
+    { id: "projects", label: "Çalışmalarım" },
   ];
 
   return (

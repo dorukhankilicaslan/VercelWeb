@@ -3,7 +3,12 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
-import ThemeProvider from "./ThemeProvider"; // ThemeProvider'ı import edin
+// ThemeProvider'dan hem bileşeni hem de ilgili tipleri import ediyoruz
+import ThemeProvider, { ThemeName, ThemeColors } from "./ThemeProvider";
+import GlobalLoadingOverlay from "./GlobalLoadingOverlay";
+
+// themes.json dosyasını import ederken tipini belirtiyoruz
+import themesDataJson from "@/styles/themes.json";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,10 +40,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // themes.json içeriğini belirli bir tipe atıyoruz
+  const themeData: Record<ThemeName, ThemeColors> = themesDataJson as Record<
+    ThemeName,
+    ThemeColors
+  >;
+
   return (
     <html lang="tr" className={`${poppins.variable}`}>
+      <head>
+        {/*
+          Önceki hidrasyon hatasına neden olan inline script kaldırıldı.
+          Artık tema yüklenene kadar sayfayı gizlemek için GlobalLoadingOverlay kullanıyoruz.
+        */}
+      </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider themeData={themeData}>
+          <GlobalLoadingOverlay />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

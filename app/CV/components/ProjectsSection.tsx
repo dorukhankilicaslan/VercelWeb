@@ -25,7 +25,7 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
       id="projects"
       ref={projectsRef}
       className="min-h-screen w-full py-0 md:py-5 xl:scroll-mt-0 md:mt-10 lg:mt-20
-      bg-transparent text-[var(--background)] dark:text-[var(--foreground)]"
+      bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-5xl mx-auto flex flex-col gap-0 md:gap-4">
         <ProjectCard
@@ -50,7 +50,7 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
           }
         />
         <ProjectCard
-          title="Instagram Sayfası Post Tasarımı"
+          title="Axial Temizlik Tozu"
           description="Axial adlı temizlik tozu ürününe ait şişe etiketi çalışması. Adobe Illustrator ve Photoshop kullanılarak hazırlanmıştır."
           gallery={[
             "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
@@ -67,7 +67,7 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
           }
         />
         <ProjectCard
-          title="Instagram Sayfası Post Tasarımı"
+          title="Kanatçı Ezo"
           description="Kanatçı Ezo isimli restorana ait menü tasarımı. Adobe Illustrator ve Photoshop kullanılarak hazırlanmıştır."
           gallery={[
             "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",

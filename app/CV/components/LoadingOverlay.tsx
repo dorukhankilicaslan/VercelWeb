@@ -9,7 +9,7 @@ export default function LoadingOverlay() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // 1.5 saniye sonra loading kalkar
+    }, 1000); // 1.5 saniye sonra loading kalkar
 
     return () => clearTimeout(timer);
   }, []);
@@ -29,6 +29,7 @@ export default function LoadingOverlay() {
           className="w-14 h-14 object-contain z-10"
           width={100}
           height={100}
+          priority={true}
         />
       </div>
     </div>

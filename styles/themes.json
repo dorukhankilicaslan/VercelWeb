@@ -8,13 +8,14 @@
 
     "--primary": "#f72b1c",
 
+    "--spotlight": "#FFFFFF15",
     "--border": "#444444",
     "--success": "#31ab65",
     "--warning": "#ec3e4c"
   },
 
   "light": {
-    "--background": "#f9fafb",
+    "--background": "#f3f3f5",
     "--foreground": "#1f2937",
     "--sidebar-bg": "#DBDBDBFF",
     "--navbar-bg": "#DDDDDD",
@@ -23,9 +24,20 @@
     "--themeColor1": "#d32f2f",
     "--primary": "#d32f2f",
     "--secondary": "#64748b",
-    "--accent": "#14b8a6",
     "--border": "#cbd5e1",
 
+    "--spotlight": "#FFFFFF11",
+    "--success": "#31ab65",
+    "--warning": "#ec3e4c"
+  },
+
+  "darkBlue": {
+    "--background": "#1A2333",
+    "--foreground": "#E0E7ED",
+    "--primary": "#3B82F6",
+    "--secondary": "#9CA3AF",
+    "--border": "#4B5563",
+    "--spotlight": "#0F172A",
     "--success": "#31ab65",
     "--warning": "#ec3e4c"
   },
@@ -40,6 +52,7 @@
     "--accent": "#5eead4",
     "--border": "#233554",
 
+    "--spotlight": "#444444",
     "--success": "#31ab65",
     "--warning": "#ec3e4c"
   }

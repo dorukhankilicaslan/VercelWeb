@@ -81,7 +81,8 @@ export default function ExperienceSection({
       id="experience"
       ref={experienceRef}
       className="min-h-screen w-full scroll-mt-5 md:mt-10 lg:mt-20
-      bg-transparent dark:bg-transparent text-[var(--background)] dark:text-[var(--foreground)]"
+      text-[var(--foreground)]
+      bg-transparent"
     >
       <div className="flex flex-col gap-0 md:gap-4 max-w-5xl mx-auto">
         {experiences.map((exp, i) => (

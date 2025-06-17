@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./styles.css";
 
-import ThemeProvider from "./components/ThemeProvider";
-
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -33,7 +31,7 @@ export default function DemoPageLayout({
         minWidth: "100vw",
       }}
     >
-      <ThemeProvider>{children}</ThemeProvider>
+      {children}
     </div>
   );
 }
