@@ -1,20 +1,24 @@
 // app/GlobalLoadingOverlay.tsx
-"use client"; // Bu bileşenin istemci tarafında çalıştığından emin olmak için
+"use client";
 
-import React, { useEffect, useState } from "react";
-import { useTheme } from "@/app/ThemeProvider"; // ThemeProvider'dan useTheme hook'unu import edin
+import { useState, useEffect } from "react";
+import { useTheme } from "./ThemeProvider";
 
-const GlobalLoadingOverlay: React.FC = () => {
-  const { isThemeLoaded } = useTheme(); // ThemeProvider'dan tema yükleme durumunu alıyoruz
-  const [isVisible, setIsVisible] = useState(true); // Overlay'in başta görünür olmasını sağlar
-  const [opacity, setOpacity] = useState(1); // Başta tam opak olmasını sağlar
+export default function GlobalLoadingOverlay() {
+  const { isThemeLoaded } = useTheme();
+  const [isVisible, setIsVisible] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+
+  const animaion_duration = 500;
 
   useEffect(() => {
     if (isThemeLoaded) {
-      setOpacity(0);
+      setIsFadingOut(true);
+
       const timer = setTimeout(() => {
         setIsVisible(false);
-      }, 500);
+      }, animaion_duration);
+
       return () => clearTimeout(timer);
     }
   }, [isThemeLoaded]);
@@ -25,10 +29,11 @@ const GlobalLoadingOverlay: React.FC = () => {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity ease-in-out duration-500"
-      style={{ opacity: opacity }}
-    ></div>
+      className={`fixed inset-0 z-[9999] flex items-center justify-center
+                  bg-white dark:bg-black transition-opacity duration-${animaion_duration} ease-out
+                  ${isFadingOut ? "opacity-0" : "opacity-100"}`}
+    >
+      <span className="text-3xl font-bold text-gray-800 dark:text-gray-200"></span>
+    </div>
   );
-};
-
-export default GlobalLoadingOverlay;
+}

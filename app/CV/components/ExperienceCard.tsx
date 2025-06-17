@@ -30,13 +30,13 @@ export default function ExperienceCard({
   return (
     <div
       className={`
-        bg-[var(--background)]/20
-
-        rounded-md p-0 mb-4 md:mb-8 relative z-0 overflow-hidden backdrop-blur-md
+        rounded-md p-0 mb-4 md:mb-8 relative z-0 overflow-hidden
+        bg-[var(--background)]/2 border border-[var(--background)]
+        backdrop-blur-md  
         transition-opacity duration-200
         ${isActive ? "opacity-100" : ""}
         ${isInactive ? "opacity-60" : ""}
-        bg-[var(--foreground)]/2 shadow-[0_0_10px_rgba(0,0,0,0.25)]
+        shadow-[0_0_10px_rgba(0,0,0,0.25)]
         focus-within:bg-[var(--foreground)]/5
       `}
       onMouseEnter={onHover}

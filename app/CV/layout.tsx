@@ -1,32 +1,21 @@
-import "./styles.css";
+// app/(cv)/layout.tsx
+import ThemeProvider, { ThemeName, ThemeColors } from "@/app/ThemeProvider"; // Global ThemeProvider'ı import et
+import cvThemesDataJson from "@/styles/cv-themes.json"; // CV'ye özel temalar
 import ClientRoot from "./components/ClientRoot";
 
-export async function generateMetadata() {
-  return {
-    title: "Dorukhan KILIÇASLAN | CV Test",
-    icons: {
-      icon: "/favicon.ico",
-    },
-    description: "Dorukhan Kılıçaslan'ın kişisel portföyü",
-    keywords: [
-      "Dorukhan Kılıçaslan",
-      "Portföy",
-      "Web Geliştirici",
-      "Yazılım Mühendisi",
-      "Frontend Developer",
-      "Backend Developer",
-      "Full Stack Developer",
-    ],
-  };
-}
-export default function OnePageCVLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata = {
+  title: "Dorukhan KILIÇASLAN | CV",
+};
+
+export default function CVLayout({ children }: { children: React.ReactNode }) {
+  const themeData: Record<ThemeName, ThemeColors> = cvThemesDataJson as Record<
+    ThemeName,
+    ThemeColors
+  >;
+
   return (
-    <div className="scroll-smooth font-[poppins] flex min-h-screen">
+    <ThemeProvider themeData={themeData} localStorageKey="CVTheme">
       <ClientRoot>{children}</ClientRoot>
-    </div>
+    </ThemeProvider>
   );
 }

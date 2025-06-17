@@ -20,10 +20,14 @@ export default function ProjectCard({
   return (
     <div
       className={`
-        bg-[var(--background)]/20
+        relative z-0 overflow-hidden rounded-md p-0 mb-4 md:mb-8 
+        bg-[var(--background)]/2 
+        backdrop-blur-md
         border border-[var(--background)] 
+        focus-within:bg-[var(--foreground)]/5
         shadow-[0_0_10px_rgba(0,0,0,0.25)]
-        rounded-md p-0 mb-4 md:mb-8 relative z-0 overflow-hidden backdrop-blur-md
+        
+
       `}
     >
       <div
@@ -32,7 +36,7 @@ export default function ProjectCard({
       >
         <div
           className="hidden sm:flex flex-col items-start justify-start overflow-hidden rounded-md 
-        bg-[var(--background)] w-auto h-full shrink-0"
+       w-auto h-full shrink-0"
         >
           <button
             // Image'ı doldurabilmesi için parent'ına relative ekliyoruz

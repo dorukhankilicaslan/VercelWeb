@@ -1,14 +1,12 @@
 // app/layout.tsx
-
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
-// ThemeProvider'dan hem bileşeni hem de ilgili tipleri import ediyoruz
 import ThemeProvider, { ThemeName, ThemeColors } from "./ThemeProvider";
-import GlobalLoadingOverlay from "./GlobalLoadingOverlay";
+import GlobalLoadingOverlay from "./GlobalLoadingOverlay"; // GlobalLoadingOverlay'i import et
 
-// themes.json dosyasını import ederken tipini belirtiyoruz
-import themesDataJson from "@/styles/themes.json";
+// themes.json dosyasını doğrudan import ederken tipini belirtiyoruz
+import themesDataJson from "@/styles/themes.json"; // Ana tema veriniz
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -48,16 +46,11 @@ export default function RootLayout({
 
   return (
     <html lang="tr" className={`${poppins.variable}`}>
-      <head>
-        {/*
-          Önceki hidrasyon hatasına neden olan inline script kaldırıldı.
-          Artık tema yüklenene kadar sayfayı gizlemek için GlobalLoadingOverlay kullanıyoruz.
-        */}
-      </head>
+      <head>{/* head içeriği */}</head>
       <body>
-        <ThemeProvider themeData={themeData}>
-          <GlobalLoadingOverlay />
+        <ThemeProvider themeData={themeData} localStorageKey="appTheme">
           {children}
+          <GlobalLoadingOverlay />
         </ThemeProvider>
       </body>
     </html>
