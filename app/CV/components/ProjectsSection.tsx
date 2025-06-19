@@ -55,14 +55,14 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
           title="Axial Temizlik Tozu"
           description="Şişe etiketi çalışması."
           gallery={[
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264780/1_dm3lsd.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264779/2_meihfx.jpg",
           ]}
           onGalleryClick={(index) =>
             handleGalleryClick(
               [
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264780/1_dm3lsd.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264779/2_meihfx.jpg",
               ],
               index
             )
@@ -142,16 +142,16 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
           title="Kanatçı Ezo"
           description="Menü ve Magnet tasarımı."
           gallery={[
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088556/1_Magnet_us2k6a.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264774/1_pgjtep.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/2_juibwh.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/3_lbhxel.jpg",
           ]}
           onGalleryClick={(index) =>
             handleGalleryClick(
               [
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088556/1_Magnet_us2k6a.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264774/1_pgjtep.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/2_juibwh.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/3_lbhxel.jpg",
               ],
               index
             )
