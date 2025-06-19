@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase-browser";
 
-export default function HomePage() {
+export default function StaticsPage() {
   const pathname = usePathname();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any[]>([]);
@@ -32,7 +32,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Anasayfa</h1>
+      <h1 className="text-2xl font-bold mb-4">İstatistikler</h1>
       {loading ? (
         <p>Yükleniyor...</p>
       ) : (
@@ -43,10 +43,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-/*
-
-sayfalar arası geçişte loading overlay'ı
-yapılan işlemin sonuçlandığına dair toaster (herhangi bir işlem için)
-
-*/

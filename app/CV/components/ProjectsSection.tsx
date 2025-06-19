@@ -32,18 +32,20 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
           title="Instagram Sayfası Post Tasarımı"
           description="Instagramda yayınlanmak üzere tasarımını Adobe Illustrator'de hazırlayıp, 3D Modelini Blender'da oluşturduğum bir proje."
           gallery={[
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080954/RollupRender_y6g1wb.png",
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/KartvizitRender_xudxkp.png",
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/UsbBoxRender_ayj3tw.png",
-            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080945/MagnetRender_ihkr4j.png",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264777/Instagram-02_txl5mp.png",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264778/Instagram-01_eexwnm.png",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264778/Instagram-03_x27q5b.png",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264781/Instagram-04_vsa4ge.png",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264780/Instagram-05_bffykq.png",
           ]}
           onGalleryClick={(index) =>
             handleGalleryClick(
               [
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080954/RollupRender_y6g1wb.png",
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/KartvizitRender_xudxkp.png",
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080950/UsbBoxRender_ayj3tw.png",
-                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749080945/MagnetRender_ihkr4j.png",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264777/Instagram-02_txl5mp.png",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264778/Instagram-01_eexwnm.png",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264778/Instagram-03_x27q5b.png",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264781/Instagram-04_vsa4ge.png",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264780/Instagram-05_bffykq.png",
               ],
               index
             )
@@ -51,7 +53,7 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
         />
         <ProjectCard
           title="Axial Temizlik Tozu"
-          description="Axial adlı temizlik tozu ürününe ait şişe etiketi çalışması. Adobe Illustrator ve Photoshop kullanılarak hazırlanmıştır."
+          description="Şişe etiketi çalışması."
           gallery={[
             "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/3_bytrzt.jpg",
             "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088652/2_unrngc.jpg",
@@ -67,8 +69,78 @@ export default function ProjectsSection({ projectsRef }: ProjectsSectionProps) {
           }
         />
         <ProjectCard
+          title="Jupiter Barkod"
+          description="Islak Mendil ve Katalog kapağı."
+          gallery={[
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/1_ls82zc.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264774/2_ixpmd1.jpg",
+          ]}
+          onGalleryClick={(index) =>
+            handleGalleryClick(
+              [
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/1_ls82zc.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264774/2_ixpmd1.jpg",
+              ],
+              index
+            )
+          }
+        />
+        <ProjectCard
+          title="Fomy Temizlik Köpüğü"
+          description="Katalog, Koli ve Ürün Etiketi tasarımı."
+          gallery={[
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264775/1_xefwyo.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264776/2_crzjac.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264777/3_rtpwv6.jpg",
+          ]}
+          onGalleryClick={(index) =>
+            handleGalleryClick(
+              [
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264775/1_xefwyo.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264776/2_crzjac.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264777/3_rtpwv6.jpg",
+              ],
+              index
+            )
+          }
+        />
+        <ProjectCard
+          title="Yakut"
+          description="Gıda markası için ürün etiketi tasarımı."
+          gallery={[
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264775/2_f8such.jpg",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264775/3_jbtwby.jpg",
+          ]}
+          onGalleryClick={(index) =>
+            handleGalleryClick(
+              [
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264775/2_f8such.jpg",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264775/3_jbtwby.jpg",
+              ],
+              index
+            )
+          }
+        />
+        <ProjectCard
+          title="Winkiki"
+          description="Karton etiket tasarımı ve montajı."
+          gallery={[
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/1_wuyfrw.png",
+            "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264774/2_sunxog.png",
+          ]}
+          onGalleryClick={(index) =>
+            handleGalleryClick(
+              [
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264773/1_wuyfrw.png",
+                "https://res.cloudinary.com/ds4suhwnb/image/upload/v1750264774/2_sunxog.png",
+              ],
+              index
+            )
+          }
+        />
+        <ProjectCard
           title="Kanatçı Ezo"
-          description="Kanatçı Ezo isimli restorana ait menü tasarımı. Adobe Illustrator ve Photoshop kullanılarak hazırlanmıştır."
+          description="Menü ve Magnet tasarımı."
           gallery={[
             "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_ArkaKapak_ke3bvq.jpg",
             "https://res.cloudinary.com/ds4suhwnb/image/upload/v1749088557/1_OnKapakTest2_s0yyqi.jpg",

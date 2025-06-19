@@ -10,16 +10,19 @@ export default function AdminSidebar(sidebarOpen: boolean) {
         icon={<Home size={20} />}
         label="Anasayfa"
         sidebarOpen={sidebarOpen}
+        href="#home"
       />
       <SidebarItem
         icon={<Settings size={20} />}
         label="Ayarlar"
         sidebarOpen={sidebarOpen}
+        href="#settings"
       />
       <SidebarItem
         icon={<LogOut size={20} />}
         label="Çıkış Yap"
         sidebarOpen={sidebarOpen}
+        href="#logout"
       />
     </nav>
   );

@@ -1,4 +1,4 @@
-// app/(cv)/layout.tsx
+// app/CV/layout.tsx
 import ThemeProvider, { ThemeName, ThemeColors } from "@/app/ThemeProvider"; // Global ThemeProvider'ı import et
 import cvThemesDataJson from "@/styles/cv-themes.json"; // CV'ye özel temalar
 import ClientRoot from "./components/ClientRoot";
